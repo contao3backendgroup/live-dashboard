@@ -25,21 +25,23 @@ Installation & Configuration
 
 Dashboard Hook
 ----------------------------
+```php
 // in config.php
-	$GLOBALS['TL_HOOKS']['addDashboardWidget'][] 	= array('MyClass', 'hookAddDashboardWidget');
+$GLOBALS['TL_HOOKS']['addDashboardWidget'][] 	= array('MyClass', 'hookAddDashboardWidget');
+
 // in MyClass.php
-	class MyClass.php
-	{
-	 ...
-		/*
-		 * @return void Es wird kein return-Wert erwartet
-		 */
-		public function hookAddDashboardWidget($arrWidgets)
-		{
-			// add your code as string
-			return '';
-		}
-	}
+class MyClass.php
+{
+ /*
+  * @return void Es wird kein return-Wert erwartet
+  */
+  public function hookAddDashboardWidget($arrWidgets)
+  {
+ 	// add your code as string
+	return '';
+  }
+}
+```
 
 License
 ---------------
