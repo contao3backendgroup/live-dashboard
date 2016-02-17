@@ -1,0 +1,4 @@
+<div class="widget">
+    <h2><?= $this->widgetTitle ?></h2>
+    <?= $this->widgetContent ?>
+</div>

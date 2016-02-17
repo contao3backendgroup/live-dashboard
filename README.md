@@ -10,6 +10,10 @@ Live Dashboard provides a administrative dashboard for users in the backend.
 Live Dashboard comes with different widgets you can activate per user or user group.
 A hook allow other modules to add custom widgets to the dashboard.
 
+Other features
+-------------------
+* Session expire info in backend (home screen and overlay)
+
 System requirements
 -------------------
 
@@ -37,8 +41,11 @@ class MyClass.php
   */
   public function hookAddDashboardWidget($arrWidgets)
   {
- 	// add your code as string
-	return '';
+ 		$objWidgetTemplate = new \BackendTemplate('be_live_widget');
+    $objWidgetTemplate->widgetTitle = ''; // add widget title
+    $objWidgetTemplate->widgetContent = ''; // add widget content
+    $strWidget = $objWidgetTemplate->parse();
+		return $strWidget;
   }
 }
 ```

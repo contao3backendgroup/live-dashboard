@@ -23,4 +23,5 @@ ClassLoader::addClasses(array
 TemplateLoader::addFiles(array
 (
 	'be_live_dashboard' => 'system/modules/live_dashboard/templates',
+	'be_live_widget' 	=> 'system/modules/live_dashboard/templates',
 ));

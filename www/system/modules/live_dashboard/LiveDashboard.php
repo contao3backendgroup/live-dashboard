@@ -6,9 +6,9 @@
  * Copyright (c) 2005-2013 Leo Feyer
  *
  * @package   LiveDashboard
- * @author    Mathias Arzberger
- * @license   All-rights-reserved.
- * @copyright pdir / digital agentur
+ * @author    pdir / digital agentur - Mathias Arzberger
+ * @license   LGPL-3.0+
+ * @copyright pdir / digital agentur - Mathias Arzberger 2016
  */
 
 class LiveDashboard extends \Template
@@ -39,15 +39,17 @@ class LiveDashboard extends \Template
             $objTemplate = new \BackendTemplate('be_live_dashboard');
 
             // sample default widget
-            $strSample = '
-                <div class="widget">
-                    <h2>Neueste Kommentare</h2>
+            $strContent = '
                     <div class="events">Text 1 <a href="#">Link 1</a></div>
                     <div class="events">Text 2 <a href="#">Link 2</a></div>
-                    <div class="events">Text 3 <a href="#">Link 3</a></div>
-                </div>';
+                    <div class="events">Text 3 <a href="#">Link 3</a></div>';
 
-            $arrWidgets = array($strSample);
+            $objWidgetTemplate = new \BackendTemplate('be_live_widget');
+            $objWidgetTemplate->widgetTitle = 'Neuste Kommentare';
+            $objWidgetTemplate->widgetContent = $strContent;
+            $strWidget = $objWidgetTemplate->parse();
+
+            $arrWidgets = array($strWidget);
 
             // HOOK: add dashboard widget
             if (isset($GLOBALS['TL_HOOKS']['addDashboardWidget']) && is_array($GLOBALS['TL_HOOKS']['addDashboardWidget']))
